@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #fde6e6, #f8b4b4);
+    color: #4a4a4a;
+    text-align: center;
+}
+
+header {
+    background-color: #a00000;
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3em;
+    color: #fff;
+}
+
+.container {
+    padding: 40px 20px;
+}
+
+.container h2 {
+    font-size: 2em;
+    margin-top: 40px;
+    color: #800000;
+}
+
+.tree {
+    margin: 20px auto;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid #006400;
+    position: relative;
+}
+
+.tree:before, .tree:after {
+    content: "";
+    position: absolute;
+    left: -50px;
+    top: 25px;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid #006400;
+}
+
+.tree:after {
+    top: 50px;
+}
+
+.message {
+    margin-top: 60px;
+    font-size: 1.2em;
+    color: #800000;
+}
+
+footer {
+    background-color: #800000;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+}
