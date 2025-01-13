@@ -2,16 +2,14 @@ using System.Diagnostics;
 using Blog_Site.ViewModels.Home;
 using Microsoft.AspNetCore.Mvc;
 
-namespace First_Try.Controllers
+namespace Blog_Site.Controllers
 {
     public class HomeController : Controller
     {
         public HomeController()
         {
-
         }
 
-        [HttpGet]
         public IActionResult Index()
         {
             return View();
@@ -34,12 +32,12 @@ namespace First_Try.Controllers
 
         [HttpGet]
         public IActionResult Login()
-        { 
+        {
             return RedirectToAction("Index");
         }
 
         [HttpPost]
-        public IActionResult Login(LoginVM login)
+        public IActionResult Login(LoginVM loginVM)
         {
             return RedirectToAction("Index");
         }

@@ -1,6 +1,4 @@
-using Microsoft.AspNetCore.Authentication.Negotiate;
-
-namespace First_Try
+namespace Blog_Site
 {
     public class Program
     {
@@ -10,16 +8,6 @@ namespace First_Try
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
-            builder.Services.AddAuthentication(NegotiateDefaults.AuthenticationScheme)
-            .AddNegotiate();
-
-            builder.Services.AddAuthorization(options =>
-            {
-                // By default, all incoming requests will be authorized according to the default policy.
-                options.FallbackPolicy = options.DefaultPolicy;
-            });
-            builder.Services.AddRazorPages();
 
             var app = builder.Build();
 
