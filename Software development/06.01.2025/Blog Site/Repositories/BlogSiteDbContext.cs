@@ -11,11 +11,9 @@ namespace Blog_Site.Repositories
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            // Has a bug
-
-            //optionsBuilder
-            //    .UseLazyLoadingProxies()
-            //    .UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=BlogSiteDB;Trusted_Connection=True;");
+            optionsBuilder
+                .UseLazyLoadingProxies()
+                .UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=BlogSiteDB;Trusted_Connection=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

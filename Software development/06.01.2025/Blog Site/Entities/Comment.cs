@@ -2,7 +2,7 @@
 
 namespace Blog_Site.Entities
 {
-    public class Comment
+    public class Comment : BaseEntity
     {
         public int OwnerId { get; set; }
         public int PostId { get; set; }
