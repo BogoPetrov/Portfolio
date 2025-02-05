@@ -42,7 +42,7 @@ namespace Blog_Site.Repositories
                     .ToList();
         }
 
-        public T FirstOrDefault(Expression<Func<T, bool>> filter)
+        public T? FirstOrDefault(Expression<Func<T, bool>> filter)
         {
             return Items!.FirstOrDefault(filter)!;
         }

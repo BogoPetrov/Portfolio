@@ -13,7 +13,7 @@ namespace Blog_Site.Repositories
         {
             optionsBuilder
                 .UseLazyLoadingProxies()
-                .UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=BlogSiteDB;Trusted_Connection=True;");
+                .UseSqlServer("Data Source=FUJITSU-DESKTOP\\SQLEXPRESS;Initial Catalog=BlogSiteDB;Integrated Security=True;Trust Server Certificate=True");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

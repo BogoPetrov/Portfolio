@@ -1,0 +1,107 @@
+﻿@using Blog_Site.Entities;
+@using Blog_Site.Extensions;
+@using Blog_Site.ViewModels.Post
+@model IndexVM;
+@{
+    User loggedUser = this.ViewContext.HttpContext.Session.GetObject<User>("loggedUser");
+}
+<!--
+    Shows all post logged user has access to
+    If user is admin or owner of the post they can edit or delete the post
+    Creates form so user can can create a comment
+-->
+<div class="grid">
+    <div class="row">
+        <div class="col-2">
+            <a href="/Posts/Create">NEW</a>
+        </div>
+    </div>
+
+    @foreach (var item in Model.Posts!)
+    {
+        <form action="/Posts/Index" method="post">
+            @Html.HiddenFor(m => m.Id)
+            <div class="row">
+                <div class="col-3"><hr></div>
+            </div>
+            <div class="row">
+                <div class="col-2">Title: @item.Title</div>
+            </div>
+            <div class="row">
+                <div class="col-3"><hr></div>
+            </div>
+            <div class="row">
+                <div class="col-2">Description: @item.Description</div>
+            </div>
+            <div class="row">
+                <div class="col-3"><hr></div>
+            </div>
+            <div class="row">
+                <div class="col-2">Type: @item.Type</div>
+            </div>
+            <div class="row">
+                <div class="col-3"><hr></div>
+            </div>
+            <div class="row">
+                <div class="col-1">Likes: @item.Likes</div>
+                <div class="col-2">
+                    <input class="right" type="submit" value="Like" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3"><hr></div>
+            </div>
+            <div class="row">
+                <div class="col-2">Date Of Post: @item.CreatedAt</div>
+            </div>
+            <div class="row">
+                <div class="col-3"><hr></div>
+            </div>
+            @if (loggedUser.IsAdmin || item.Owner!.Id == loggedUser.Id)
+            {
+                <div class="col-2">
+                    <a href="/Posts/Edit?id=@item.Id">edit</a>
+                    <a href="/Posts/Delete?id=@item.Id"
+                       onclick="return confirm('Delete item?')">delete</a>
+                </div>
+            }
+            <div class="row">
+                <div class="col-3"><hr></div>
+            </div>
+            <div class="row">
+                <div class="col-1">Comments</div>
+            </div>
+            <div class="row">
+                <div class="col-3"><hr></div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    <a href="/Comment/Create">Add Comment</a>
+                </div>
+            </div>
+            @if (Model.Comments != null)
+            {
+                @foreach (var comment in Model.Comments)
+                {
+                    @if (comment.PostId == item.Id)
+                    {
+                        <div class="row">
+                            <div class="col-2">@comment.Text</div>
+                            <div class="col-1">@comment.Owner!.Username</div>
+                        </div>
+                        @if (loggedUser.IsAdmin || loggedUser.Id == comment.OwnerId)
+                        {
+                            <div class="row">
+                                <div class="col-2">
+                                    <a href="/Post/EditComment?id=@comment.Id">edit</a>
+                                    <a href="/Post/DeleteComment?id=@comment.Id"
+                                       onclick="return confirm('Delete item?')">delete</a>
+                                </div>
+                            </div>
+                        }
+                    }
+                }
+            }
+        </form>
+    }
+</div>

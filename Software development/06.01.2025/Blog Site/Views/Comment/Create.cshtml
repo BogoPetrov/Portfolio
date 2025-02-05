@@ -1,0 +1,27 @@
+﻿@using Blog_Site.ViewModels.Comment﻿
+@model CreateVM;
+<!--
+    Creates form so user can input data to create new post
+-->
+<div class="row">
+    <div class="col-3"><hr></div>
+</div>
+<form action="/Posts/Create" method="post">
+    <div class="grid">
+        <div class="row">
+            <div class="col-1">Text:</div>
+            <div class="col-2">
+                @Html.TextBoxFor(m => m.Text)
+            </div>
+            <div>
+                @Html.ValidationMessageFor(m => m.Text)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <input class="right" type="submit" value="Save" />
+                <a class="right" href="/Posts/Index">Back</a>
+            </div>
+        </div>
+    </div>
+</form>
