@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35919.96
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fantasy_Hero", "Fantasy_Hero\Fantasy_Hero.csproj", "{11E42CBA-EE61-42B8-A35C-B9E6D6EBBA18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fantasy_Hero_GPT", "Fantasy_Hero_GPT\Fantasy_Hero_GPT.csproj", "{D28F53EE-8334-4347-AD12-76EB9C4A146B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{11E42CBA-EE61-42B8-A35C-B9E6D6EBBA18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11E42CBA-EE61-42B8-A35C-B9E6D6EBBA18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11E42CBA-EE61-42B8-A35C-B9E6D6EBBA18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11E42CBA-EE61-42B8-A35C-B9E6D6EBBA18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D28F53EE-8334-4347-AD12-76EB9C4A146B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D28F53EE-8334-4347-AD12-76EB9C4A146B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D28F53EE-8334-4347-AD12-76EB9C4A146B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D28F53EE-8334-4347-AD12-76EB9C4A146B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8396BE58-25E3-40A9-8370-5CC4F838D2CF}
+	EndGlobalSection
+EndGlobal

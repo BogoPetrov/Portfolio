@@ -1,0 +1,59 @@
+﻿@model Blog_Site.ViewModels.User.CreateVM
+<!--
+    Creates form so admin can input data to create new user
+-->
+<form action="/Users/Create" method="post">
+    <div class="grid">
+        <div class="row">
+            <div class="col-1">Username:</div>
+            <div class="col-2">
+                @Html.TextBoxFor(m => m.Username)
+            </div>
+            <div>
+                @Html.ValidationMessageFor(m => m.Username)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1">Password:</div>
+            <div class="col-2">
+                @Html.PasswordFor(m => m.Password)
+            </div>
+            <div>
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1">First Name:</div>
+            <div class="col-2">
+                @Html.TextBoxFor(m => m.FirstName)
+            </div>
+            <div>
+                @Html.ValidationMessageFor(m => m.FirstName)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1">Last Name:</div>
+            <div class="col-2">
+                @Html.TextBoxFor(m => m.LastName)
+            </div>
+            <div>
+                @Html.ValidationMessageFor(m => m.LastName)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1">Is Admin:</div>
+            <div class="col-2">
+                @Html.CheckBoxFor(m => m.IsAdmin)
+            </div>
+            <div>
+                @Html.ValidationMessageFor(m => m.IsAdmin)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <input class="right" type="submit" value="Save" />
+                <a class="right" href="/Users/Index">Back</a>
+            </div>
+        </div>
+    </div>
+</form>

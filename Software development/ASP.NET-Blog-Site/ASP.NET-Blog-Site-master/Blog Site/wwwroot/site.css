@@ -1,0 +1,102 @@
+﻿/* General Styles */
+body {
+    font-family: Arial, sans-serif; /* Use a clean, professional font */
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; /* Light background color for contrast */
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px; /* Limit the container width */
+    margin: 0 auto; /* Center the container */
+    padding: 2px; /* Add padding for spacing from screen edges */
+    display: flex;
+    flex-direction: column; /* Vertical layout */
+}
+
+/* Menu Styles */
+.menu {
+    background-color: #333; /* Dark background for the menu */
+    color: white; /* White text color */
+}
+
+    .menu > ul {
+        display: flex; /* Flexbox for horizontal layout */
+        justify-content: space-around; /* Evenly distribute items */
+        list-style: none; /* Remove default list styling */
+        padding: 5px 0; /* Vertical padding for the menu */
+        margin: 0; /* Remove default margin */
+    }
+
+        .menu > ul > li {
+            margin: 0 15px; /* Space between menu items */
+        }
+
+            .menu > ul > li > a {
+                text-decoration: none; /* Remove underline */
+                color: white; /* Link color */
+                padding: 10px 15px; /* Add padding for better click area */
+                transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
+            }
+
+                .menu > ul > li > a:hover {
+                    background-color: #575757; /* Darker background on hover */
+                    color: #ffcc00; /* Highlight color on hover */
+                }
+
+/* Grid Styles */
+.grid,
+.grid > .row {
+    width: 100%;
+    margin: 10px 0; /* More spacing for grid */
+    display: flex; /* Use Flexbox for rows */
+    flex-wrap: wrap; /* Allow items to wrap */
+}
+
+/* Column Styles */
+.row {
+    display: flex; /* Flexbox for columns */
+    gap: 10px; /* Space between columns */
+}
+
+    .row > .col-1 {
+        flex: 0 0 150px; /* Fixed width */
+    }
+
+    .row > .col-2 {
+        flex: 0 0 300px; /* Fixed width */
+    }
+
+    .row > .col-3 {
+        flex: 0 0 450px; /* Fixed width */
+    }
+
+    /* Input Styles */
+    .row input[type=text],
+    .row input[type=password] {
+        width: 100%; /* Full width */
+        padding: 10px; /* Comfortable padding */
+        border: 1px solid #ccc; /* Subtle border */
+        border-radius: 4px; /* Rounded corners */
+        box-sizing: border-box; /* Include padding in width */
+        transition: border-color 0.3s; /* Transition for border color */
+    }
+
+        .row input[type=text]:focus,
+        .row input[type=password]:focus {
+            border-color: #ffcc00; /* Highlight border on focus */
+        }
+
+/* Utility Classes */
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.b {
+    font-weight: bold;
+}

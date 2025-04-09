@@ -1,0 +1,84 @@
+﻿@model Blog_Site.ViewModels.User.IndexVM
+<!--
+    Shows all users
+    Has links to create page
+    Admin can delete, edit a user or make them an admin
+    Has form for filtered searches 
+    Has pager
+-->
+<div class="grid">
+    <div class="row">
+        <div class="col-2">
+            <a href="/User/Create">NEW</a>
+        </div>
+    </div>
+    <div class="row">
+        <form action="/User/Index" method="get">
+            <div class="grid">
+                <div class="row">
+                    <div class="col-1">@Html.LabelFor(m => m.Username)</div>
+                    <div class="col-2">@Html.TextBoxFor(m => m.Username)</div>
+                </div>
+                <div class="row">
+                    <div class="col-1">@Html.LabelFor(m => m.FirstName)</div>
+                    <div class="col-2">@Html.TextBoxFor(m => m.FirstName)</div>
+                </div>
+                <div class="row">
+                    <div class="col-1">@Html.LabelFor(m => m.LastName)</div>
+                    <div class="col-2">@Html.TextBoxFor(m => m.LastName)</div>
+                </div>
+                <div class="row">
+                    <div class="col-1">@Html.LabelFor(m => m.IsAdmin)</div>
+                    <div class="col-2">@Html.CheckBoxFor(m => m.IsAdmin)</div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <input type="submit" value="Filter" />
+                        <a href="/User/Index">Clear</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-1">Username</div>
+        <div class="col-1">First Name</div>
+        <div class="col-1">Last Name</div>
+        <div class="col-1">Is Admin</div>
+    </div>
+    @foreach (var item in Model.Items)
+    {
+        <div class="row">
+            <div class="col-1">@item.Username</div>
+            <div class="col-1">@item.FirstName</div>
+            <div class="col-1">@item.LastName</div>
+            <div class="col-1">@item.IsAdmin</div>
+            <div class="col-2">
+                <a href="/User/Edit?id=@item.Id">edit</a>
+                <a href="/User/Delete?id=@item.Id"
+                   onclick="return confirm('Delete item?')">delete</a>
+            </div>
+        </div>
+    }
+    <div class="row">
+        <script>
+            function ddlItemsPerPage_OnChange() {
+
+                var selectedValue = document.getElementById("ddlItemsPerPage").value;
+
+                document.location.href = "/User/Index?Username=@(Model.Username)&FirstName=@(Model.FirstName)&LastName=@(Model.LastName)&ItemsPerPage=" + selectedValue;
+            }
+        </script>
+        <div class="col-3">
+            @for (int i = 0; i < Model.PagesCount; i++)
+            {
+                <a href="/User/Index?Username=@(Model.Username)&FirstName=@(Model.FirstName)&LastName=@(Model.LastName)&Page=@(i+1)&ItemsPerPage=@Model.ItemsPerPage">@(i + 1)</a>
+            }
+            <select id="ddlItemsPerPage" onchange="ddlItemsPerPage_OnChange()">
+                <option value="2" selected="@(Model.ItemsPerPage == 2 ? "selected" : "")">2</option>
+                <option value="5" selected="@(Model.ItemsPerPage == 5 ? "selected" : "")">5</option>
+                <option value="10" selected="@(Model.ItemsPerPage == 10 ? "selected" : "")">10</option>
+            </select>
+        </div>
+    </div>
+</div>

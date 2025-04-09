@@ -1,0 +1,55 @@
+﻿@model Blog_Site.ViewModels.Home.RegisterVM
+<!--
+    Creates form so user can register
+-->
+<form action="/Home/Register" method="post">
+    @Html.HiddenFor(m => m.Url)
+    <div class="grid">
+        <div class="row">
+            <div class="col-1">Username:</div>
+            <div class="col-2">
+                @Html.TextBoxFor(m => m.Username)
+            </div>
+            <div>
+                @Html.ValidationMessageFor(m => m.Username)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1">Password:</div>
+            <div class="col-2">
+                @Html.PasswordFor(m => m.Password)
+            </div>
+            <div>
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1">First Name:</div>
+            <div class="col-2">
+                @Html.PasswordFor(m => m.FirstName)
+            </div>
+            <div>
+                @Html.ValidationMessageFor(m => m.FirstName)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1">Last Name:</div>
+            <div class="col-2">
+                @Html.PasswordFor(m => m.LastName)
+            </div>
+            <div>
+                @Html.ValidationMessageFor(m => m.LastName)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                @Html.ValidationMessage("authFailed")
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <input class="right" type="submit" value="Login" />
+            </div>
+        </div>
+    </div>
+</form>

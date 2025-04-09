@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Blog_Site.Repositories
 {
-    public class BlogSiteDbContext : DbContext
+    public class BlogSiteDbContext: DbContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Post> Posts { get; set; }
@@ -13,7 +13,7 @@ namespace Blog_Site.Repositories
         {
             optionsBuilder
                 .UseLazyLoadingProxies()
-                .UseSqlServer("Data Source=FUJITSU-DESKTOP\\SQLEXPRESS;Initial Catalog=BlogSiteDB;Integrated Security=True;Trust Server Certificate=True");
+                .UseSqlServer("Server=DESKTOP-JI0N0GR\\MSSQLSERVER01;Database=BlogSite;Trusted_Connection=True;Integrated Security=True;;TrustServerCertificate=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
