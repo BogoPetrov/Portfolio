@@ -5,7 +5,7 @@ namespace MyReflectionApp
     {
         public int Id { get; set; }
         public string? Name { get; set; }
-        public decimal Price { get; set; }
+        public decimal Price { get; set; }  
 
         public string? GetLabel() => $"{Id} - {Name}";
     }
